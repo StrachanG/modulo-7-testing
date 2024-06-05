@@ -1,0 +1,122 @@
+describe("obtenerURLcarta", () => {
+
+    it("Forzamos a que la carta obtenida sea src/img/baraja-svg/1_as-copas.svg, debería tener un total de 1 puntos.", () => {
+
+        //Arrange
+        const totalPuntos = 4;
+        const cartaObtenida = 3;
+
+        vi.spyOn(global.Math, "random").mockReturnValue(3);
+
+        //Act
+        const resultado = obtenerPuntosCarta();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+    it("Si el total de puntos era 7 y forzamos a que la carta obtenida sea un 11, debería tener un total de 7.5 puntos.", () => {
+
+        //Arrange
+        const totalPuntos = 7;
+        const cartaObtenida = 11;
+        vi.spyOn(global.Math, "random").mockReturnValue(0.5);
+
+        //Act
+        const resultado = obtenerPuntosCarta();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+});
+
+describe("obtenerPuntosCarta", () => {
+
+    it("Forzamos que la carta obtenida sea el 3, debería proporcionar al jugador 3 puntos", () => {
+
+        //Arrange
+        const cartaObtenida = 3;
+
+        vi.spyOn(global.Math, "random").mockReturnValue(3);
+
+        //Act
+        const resultado = obtenerPuntosCarta();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+    it("Forzamos que la carta obtenida sea el 11, debería proporcionar al jugador 0.5 puntos", () => {
+
+        //Arrange
+        const cartaObtenida = 11;
+        vi.spyOn(global.Math, "random").mockReturnValue(0.5);
+
+        //Act
+        const resultado = obtenerPuntosCarta();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+});
+
+describe("sumarPuntos", () => {
+
+    it("Si el total de puntos era 4 y forzamos a que la carta obtenida sea 3, debería tener un total de 7 puntos.", () => {
+
+        //Arrange
+        const totalPuntos = 4;
+        const cartaObtenida = 3;
+
+        vi.spyOn(global.Math, "random").mockReturnValue(3);
+
+        //Act
+        const resultado = obtenerPuntosCarta();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+    it("Si el total de puntos era 7 y forzamos a que la carta obtenida sea un 11, debería tener un total de 7.5 puntos.", () => {
+
+        //Arrange
+        const totalPuntos = 7;
+        const cartaObtenida = 11;
+        vi.spyOn(global.Math, "random").mockReturnValue(0.5);
+
+        //Act
+        const resultado = obtenerPuntosCarta();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+});
+
+describe("mostrarResultadoMeHePlantado", () => {
+
+    it("Debería devolver 'Has sido muy conservador' cuando el total de puntos al plantarse <= 4", () => {
+
+        //Arrange
+        const totalPuntos : partida = "Has sido muy conservador";
+        const cartaObtenida = 3;
+
+        vi.spyOn(global.Math, "random").mockReturnValue(3);
+
+        //Act
+        const resultado = mostrarResultadoMeHePlantado();
+
+        //Assert
+        expect(resultado).toBe(cartaObtenida);
+
+    });
+
+});
